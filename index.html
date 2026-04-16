@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Баскетбол для новичков | Обучающий курс</title>
+    <style>
+        /* Основные стили (CSS) */
+        :root {
+            --primary-color: #ff6b00; /* Баскетбольный оранжевый */
+            --dark-bg: #1a1a1a;
+            --text-color: #f0f0f0;
+            --card-bg: #2d2d2d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Навигация */
+        header {
+            background-color: #000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Главный экран */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #e65100;
+        }
+
+        /* Секция "О проекте" */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Секция уроков */
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .lesson-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+
+        /* Если будешь вставлять YouTube, используй этот класс для iframe */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .checklist {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .checklist h4 {
+            margin: 0 0 5px 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .checklist ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        /* Футер */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Basket<span style="color:white">School</span></div>
+        <nav>
+            <a href="#about">О проекте</a>
+            <a href="#lessons">Видео-уроки</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Стань королем площадки</h1>
+        <p>Бесплатный курс видео-уроков по баскетболу для начинающих. От базовой стойки до первого трехочкового.</p>
+        <a href="#lessons" class="btn">Начать тренировку</a>
+    </section>
+
+    <section id="about" class="container">
+        <div style="text-align: center;">
+            <h2 class="section-title">О курсе</h2>
+            <p class="about-text">
+                Актуальность проекта обусловлена растущим интересом молодежи к баскетболу. 
+                Мы создали структурированную базу знаний, которая позволит новичкам освоить базовые навыки игры самостоятельно, 
+                без личного тренера.
+            </p>
+            <p class="about-text">
+                Программа разработана специально для школьников (12–18 лет) и взрослых новичков.
+            </p>
+        </div>
+    </section>
+
+    <section id="lessons" class="container">
+        <h2 class="section-title">Учебный план</h2>
+        <div class="lessons-grid">
+
+            <div class="lesson-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/SPrgWn38yVI" title="Дриблинг" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Урок 1. Основы дриблинга</h3>
+                    <p>Учимся контролировать мяч. Высокий и низкий дриблинг, перевод мяча перед собой.</p>
+                    <div class="checklist">
+                        <h4>Чек-лист:</h4>
+                        <ul>
+                            <li>Спина прямая, ноги согнуты</li>
+                            <li>Мяч толкаем пальцами, не ладонью</li>
+                            <li>Голова поднята (смотрим на кольцо)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-card">
+                <div class="video-container">
+                     <iframe src="https://www.youtube.com/embed/F4s1V0qQzJ8" title="Передачи" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Урок 2. Техника передач</h3>
+                    <p>Разбираем базовые виды паса: от груди, с отскоком от пола и из-за головы.</p>
+                    <div class="checklist">
+                        <h4>Чек-лист:</h4>
+                        <ul>
+                            <li>Шаг навстречу партнеру</li>
+                            <li>Локти прижаты при замахе</li>
+                            <li>Завершающее движение кистями</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dxuAXI_f8RE" title="Бросок" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Урок 3. Идеальный бросок</h3>
+                    <p>Постановка техники броска. Работа ног, локтя и кисти (B.E.E.F).</p>
+                    <div class="checklist">
+                        <h4>Чек-лист:</h4>
+                        <ul>
+                            <li>Ноги на ширине плеч</li>
+                            <li>Локоть смотрит на кольцо</li>
+                            <li>Мяч лежит на подушечках пальцев</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>Автор проекта: Шилов Станислав, ученик 10Б класса</p>
+        <p>Гимназия №10 имени Ф.М. Достоевского | 2026</p>
+    </footer>
+
+</body>
+</html>
